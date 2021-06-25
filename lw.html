@@ -1,0 +1,62 @@
+<script>
+
+	function lw(){
+        var i = document.getElementById("I1").value
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET" , "http://192.168.43.82/cgi-bin/lw.py?x=" + i , true);
+	xhr.send();
+	xhr.onload = function ()
+		{
+	var output = xhr.responseText;
+	document.getElementById("d1").innerHTML = output;
+		}
+	}
+
+</script>
+
+<style>
+
+div#d3{
+  font-size: 40px;
+  color: blue;
+  text-decoration: aqua;
+  background-color: yellow;
+  border: 7px solid yellow;
+}
+
+h1#d2{
+color: green;
+font-size: 50px;
+}
+
+input#I1{
+color: red;
+font-size:20px;
+background-color: white;
+border: 3px solid black;
+}
+
+#b1:hover{
+  background-color: green;
+}
+
+</style>
+
+<center>
+
+<h1 id="d2">Run Docker Command</h1>
+
+<input type= "text" id="I1" placeholder= "Enter command...">
+
+</br>
+<button id="b1" , onclick="lw();">Run</button>
+
+</br>
+</br>
+
+<div id="d3">Output Coming Soon....</div>
+<pre>
+<div id="d1"></div>
+</pre>
+
+</center>
